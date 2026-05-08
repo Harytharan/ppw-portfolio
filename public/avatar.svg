@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Professional portrait placeholder</title>
+  <desc id="desc">Gradient frame with initials HS  replace with your photo</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
+      <stop offset="45%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <circle cx="120" cy="140" r="160" fill="url(#glow)"/>
+  <rect x="24" y="24" width="352" height="452" rx="28" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+  <text x="200" y="268" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="72" font-weight="700" fill="rgba(255,255,255,0.92)">HS</text>
+  <text x="200" y="316" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="rgba(226,232,240,0.75)">Replace with your photo</text>
+</svg>

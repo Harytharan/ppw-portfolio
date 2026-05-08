@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Anti-Gravity UI
 
-## Getting Started
+Premium single-page portfolio built with **Next.js 16 (App Router)**, **Tailwind CSS v4**, **Framer Motion**, and **Lucide React**.
 
-First, run the development server:
+The site is a static portfolio: all editable content lives in `lib/data.ts`, and assets live under `public/`.
+
+## Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Contact form email setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Copy `.env.example` to `.env.local`
+2. Set:
+   - `GMAIL_USER` (your Gmail address)
+   - `GMAIL_APP_PASSWORD` (Google app password)
+   - `CONTACT_RECEIVER_EMAIL` (where form submissions are sent)
 
-## Learn More
+The contact form posts to `POST /api/contact` and sends email via Gmail SMTP.
 
-To learn more about Next.js, take a look at the following resources:
+## What to customize
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **`lib/data.ts`** — copy, links, projects, skills, CV data, certificates, and journal content.
+- **`public/cv/CV.pdf`** — add your real CV. Optional tiny placeholder: `node scripts/create-placeholder-cv.mjs`
+- **`public/certificates/certificate.svg`** — replace with your real certificate (see `public/certificates/README.txt`).
+- **`public/avatar.svg`** — replace with a photo, or update `profileImageUrl` in `lib/data.ts`.
+- **LinkedIn / GitHub** — update the links in `portfolioData.contact` inside `lib/data.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+| Command         | Description           |
+| --------------- | --------------------- |
+| `npm run dev`   | Start dev server      |
+| `npm run build` | Production build      |
+| `npm run start` | Run production server |
+| `npm run lint`  | ESLint                |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Framer Motion · Lucide React

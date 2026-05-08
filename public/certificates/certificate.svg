@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="ctitle">
+  <title id="ctitle">Certificate placeholder  replace with your issued certificate</title>
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="620" rx="36" fill="#0b1220"/>
+  <rect x="48" y="48" width="804" height="524" rx="28" fill="rgba(255,255,255,0.04)" stroke="url(#frame)" stroke-width="3"/>
+  <circle cx="780" cy="140" r="90" fill="#6366f1" opacity="0.15" filter="url(#blur)"/>
+  <circle cx="140" cy="480" r="110" fill="#06b6d4" opacity="0.12" filter="url(#blur)"/>
+  <text x="450" y="160" text-anchor="middle" fill="#e8ecf7" font-family="ui-sans-serif,system-ui,sans-serif" font-size="28" font-weight="700">Certificate of Completion</text>
+  <text x="450" y="210" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16">Placeholder evidence for portfolio</text>
+  <text x="450" y="290" text-anchor="middle" fill="#cbd5f5" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="600">Professional Development / Full-Stack Fundamentals</text>
+  <text x="450" y="340" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15">Platform: Coursera / Udemy / LinkedIn Learning (replace)</text>
+  <text x="450" y="390" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15">Completed: 2025 � Skill improved: Modern web development</text>
+  <rect x="280" y="430" width="340" height="56" rx="14" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.45)"/>
+  <text x="450" y="466" text-anchor="middle" fill="#c7d2fe" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="600">TODO: Export your real certificate as PNG or PDF</text>
+</svg>

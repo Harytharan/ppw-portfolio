@@ -1,26 +1,167 @@
 @import "tailwindcss";
 
+/* Manual dark mode via `.dark` on <html> (theme toggle) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-border: rgba(99, 102, 241, 0.18);
+  --accent-violet: #6366f1;
+  --accent-cyan: #06b6d4;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --glass: rgba(255, 255, 255, 0.55);
+  --orb-violet: rgba(99, 102, 241, 0.25);
+  --orb-cyan: rgba(6, 182, 212, 0.2);
+}
+
+.dark {
+  --background: #070b14;
+  --foreground: #e8ecf7;
+  --muted: #94a3b8;
+  --surface: rgba(15, 23, 42, 0.55);
+  --surface-border: rgba(148, 163, 184, 0.12);
+  --accent-violet: #818cf8;
+  --accent-cyan: #22d3ee;
+  --accent-glow: rgba(129, 140, 248, 0.45);
+  --glass: rgba(15, 23, 42, 0.45);
+  --orb-violet: rgba(129, 140, 248, 0.28);
+  --orb-cyan: rgba(34, 211, 238, 0.22);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-border: var(--surface-border);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-glass: var(--glass);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.55;
+  }
+  33% {
+    transform: translate(4%, -3%) scale(1.05);
+    opacity: 0.75;
+  }
+  66% {
+    transform: translate(-3%, 4%) scale(0.98);
+    opacity: 0.65;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Scrollbar — subtle premium */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent-violet) 35%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent-violet) 50%, transparent);
+}
+
+/* Utility: glass panel */
+.glass-panel {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--surface-border);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 24px 48px -24px rgba(0, 0, 0, 0.35);
+}
+
+.dark .glass-panel {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 24px 48px -24px rgba(0, 0, 0, 0.55);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--accent-violet),
+    var(--accent-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ring-focus {
+  @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-accent-violet;
+}
+
+.animate-aurora {
+  animation: aurora 18s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
 }
